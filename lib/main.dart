@@ -1,24 +1,39 @@
 import 'package:flutter/material.dart';
 
+import 'Anasayfa.dart';
+import 'Favoriler.dart';
+import 'Profil.dart';
+import 'Sepet.dart';
+
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int indexs = 0;
+  final ekranlar = [Anasayfa(), Favoriler(), Sepet(), Profil()];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.white,
-        body: SafeArea(
-            child: Center(
-          child: Column(),
-        )),
+        body: ekranlar[indexs],
         bottomNavigationBar: NavigationBar(
           indicatorColor: Colors.white,
           backgroundColor: Colors.white,
+          selectedIndex: indexs,
+          onDestinationSelected: (int newIndex) {
+            setState(() {
+              indexs = newIndex;
+            });
+          },
           destinations: const <Widget>[
             NavigationDestination(
               selectedIcon: Icon(
@@ -49,7 +64,7 @@ class MyApp extends StatelessWidget {
                 color: Colors.orange,
               ),
               icon: Icon(Icons.person_outline_outlined),
-              label: 'Saved',
+              label: 'Profil',
             ),
           ],
         ),
