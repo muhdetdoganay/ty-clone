@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "300017967300",
+    "project_id": "tyclone-690f5",
+    "storage_bucket": "tyclone-690f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:300017967300:android:f06da2793b8541713ce991",
+        "android_client_info": {
+          "package_name": "com.example.turuncu_site"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHbdKFhiVHpN0Bp4RFN11nL78cSgpL9sc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
