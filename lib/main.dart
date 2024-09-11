@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:turuncu_site/Kategoriler.dart';
 import 'Anasayfa.dart';
 import 'Favoriler.dart';
 import 'Profil.dart';
@@ -20,7 +22,12 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int indexs = 0;
-  final ekranlar = [Anasayfa(), Favoriler(), Sepet(), Profil()];
+  final ekranlar = [
+    Anasayfa(),
+    Favoriler(),
+    Sepet(),
+    Profil(),
+  ];
   final Future<FirebaseApp> _initilaztion = Firebase.initializeApp();
   @override
   Widget build(BuildContext context) {
@@ -88,13 +95,3 @@ class _MyAppState extends State<MyApp> {
             }));
   }
 }
-/**/
-/*FutureBuilder(
-future: _initilaztion,
-builder: (context, snapshot) {
-if (snapshot.hasError) {
-return Center(
-child: Text('Beklenmeyen bir hata oluştu'),
-);
-}
-}),*/
