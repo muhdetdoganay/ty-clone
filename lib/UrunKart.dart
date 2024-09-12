@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
 
-class UrunKart extends StatelessWidget {
+class UrunKart extends StatefulWidget {
+  final String ad, aciklama, marka;
+  final int fiyat;
   const UrunKart({
     super.key,
+    required this.ad,
+    required this.aciklama,
+    required this.marka,
+    required this.fiyat,
   });
 
+  @override
+  State<UrunKart> createState() => _UrunKartState();
+}
+
+class _UrunKartState extends State<UrunKart> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,7 +37,17 @@ class UrunKart extends StatelessWidget {
           ),
           Expanded(
             child: Column(
-              children: [Text('başlık'), Text('açıklama'), Text('ücret')],
+              children: [
+                Text(this.widget.ad),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(this.widget.aciklama),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(this.widget.fiyat.toString())
+              ],
             ),
           )
         ],

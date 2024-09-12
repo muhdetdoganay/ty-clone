@@ -389,9 +389,9 @@ class _AnasayfaState extends State<Anasayfa> {
               ),
             ],
           ),
-          UrunKart(),
-          UrunKart(),
-          UrunKart(),
+          //UrunKart(),
+          //UrunKart(),
+          //UrunKart(),
         ],
       ),
     );

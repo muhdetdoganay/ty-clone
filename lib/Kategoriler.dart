@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:turuncu_site/UrunPage.dart';
 
 class Kategoriler extends StatefulWidget {
   const Kategoriler({super.key});
@@ -44,14 +45,23 @@ class _KategorilerState extends State<Kategoriler> {
             itemBuilder: (context, index) {
               var data = listOfDocs[index].data() as Map<String, dynamic>;
               return TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => UrunPage(
+                        kategoriId: data['id'],
+                      ),
+                    ),
+                  );
+                },
                 style: ButtonStyle(
                   backgroundColor: WidgetStateProperty.all(Colors.white),
                   overlayColor: WidgetStateProperty.all(Colors.white),
                 ),
                 child: ListTile(
                   trailing: Icon(Icons.arrow_right),
-                  title: Text('${data['kategori'] ?? 'Bilinmeyen Kategori'}'),
+                  title: Text('${data['id'] ?? 'Bilinmeyen Kategori'}'),
                 ),
               );
             },
