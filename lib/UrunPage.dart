@@ -49,6 +49,7 @@ class _UrunPageState extends State<UrunPage> {
                 fiyat: data['fiyat'],
                 marka: data['marka'],
                 aciklama: data['aciklama'],
+                foto: data['foto'],
               );
             },
           );
