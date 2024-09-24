@@ -5,26 +5,28 @@ import 'package:turuncu_site/Favoriler.dart';
 import 'UrunKart.dart';
 
 class UrunPage extends StatefulWidget {
-  final String kategoriId;
-  const UrunPage({super.key, required this.kategoriId});
+  final Map data;
+  const UrunPage({super.key, required this.data});
 
   @override
   State<UrunPage> createState() => _UrunPageState();
 }
 
 class _UrunPageState extends State<UrunPage> {
+  late String kategoriId = this.widget.data['id'];
   @override
   Widget build(BuildContext context) {
     CollectionReference urunler = FirebaseFirestore.instance.collection('ty');
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('${widget.kategoriId}'),
+        title: Text('${kategoriId}'),
         centerTitle: true,
         backgroundColor: Colors.white,
       ),
       body: StreamBuilder<QuerySnapshot>(
-        stream: urunler.where('id', isEqualTo: widget.kategoriId).snapshots(),
+        stream: urunler.where('id', isEqualTo: kategoriId).snapshots(),
         builder:
             (BuildContext context, AsyncSnapshot<QuerySnapshot> asyncSnapshot) {
           if (asyncSnapshot.connectionState == ConnectionState.waiting) {
@@ -50,6 +52,7 @@ class _UrunPageState extends State<UrunPage> {
                 marka: data['marka'],
                 aciklama: data['aciklama'],
                 foto: data['foto'],
+                data: data,
               );
             },
           );

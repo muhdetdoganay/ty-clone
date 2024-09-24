@@ -50,7 +50,7 @@ class _KategorilerState extends State<Kategoriler> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => UrunPage(
-                        kategoriId: data['id'],
+                        data: data,
                       ),
                     ),
                   );
